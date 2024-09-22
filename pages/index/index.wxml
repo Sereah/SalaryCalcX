@@ -1,0 +1,182 @@
+<!--index.wxml-->
+<view class="custom-navbar">
+  <image class="calcx" src="/assert/index/房价计算器.png" mode="widthFix" />
+  <text class="navbar-title">SalaryCalcX</text>
+</view>
+
+<view class="hintWindow" wx:if="{{showHintWindow}}" catch:touchmove="true" bind:tap="tapHideHintWindow">
+  <view class="hintContent">
+    <view class="hint_title">
+      <text>友情提示</text>
+    </view>
+    <view class="hint_content">
+      <text>1. 税率计算按照2024年最新计算方式：累计预扣法。</text>
+      <text style="font-size: 25rpx; color: #919191;">(也就是会出现年末每月的税率会比年初每月的税率高，这是因为应纳税所得额超过税率层级而出现跳档现象)</text>
+      <text style="margin-top: 20rpx;">2.社保个人缴纳比例按照10.5%计算。</text>
+      <text style="font-size: 25rpx; color: #919191;">(因各地差异不大，因此统一按照, 养老:8%, 医疗:2%, 失业:0.5%, 工伤/生育:0%)</text>
+      <text style="margin-top: 20rpx;">3.因为专项附加免除范围太多，暂时无法做到通过选择输入，因此个税专项附加扣除和其他免税扣除自行填报。</text>
+      <text style="font-size: 25rpx; color: #919191;">(填报金额以年为单位，比如租房专项1500/月，那么填入18000)</text>
+    </view>
+  </view>
+</view>
+
+<scroll-view>
+  <view class="container">
+    <view class="hint">
+      <text style="margin-right: 10rpx; color: #7a7a7a;">计算须知</text>
+      <image src="/assert/index/提示_active.png" mode="widthFix" style="width: 40rpx;" bind:tap="tapShowHintWindow" />
+    </view>
+
+    <view class="after">
+      <view class="contain">
+        <view class="clear_view">
+          <text style="text-align: center; flex-grow: 1; font-weight: 800;">新薪资</text>
+          <image class="clear_img" src="{{clear_image_after}}" mode="widthFix" bind:tap="tapClearAfter" bind:touchstart="touchClearStartAfter" bind:touchend="touchClearEndAfter" />
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">月薪</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input3" type="digit" placeholder="金额/元" value="{{vAfterSalary}}" bindinput="inputAfterSalary" />
+          <text>x</text>
+          <text>12月</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">公积金</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input1" type="digit" placeholder="基数" value="{{vAfterProvidentFund}}" bindinput="inputAfterProvidentFund" />
+          <text>x</text>
+          <input class="input2" type="digit" placeholder="比例" value="{{vAfterProvidentFundPer}}" bindinput="inputAfterProvidentFundPer" />
+          <text>%</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">社保</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input3" type="digit" placeholder="基数" value="{{vAfterSocial}}" bindinput="inputAfterSocial" />
+          <text>x</text>
+          <text>10.5%</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">年终奖</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input1" type="digit" placeholder="金额/元" value="{{vAfterBonus}}" bindinput="inputAfterBonus" />
+          <text>x</text>
+          <input class="input2" type="digit" placeholder="月数" value="{{vAfterBonusMonth}}" bindinput="inputAfterBonusMonth" />
+          <text>月</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="before">
+      <view class="contain">
+        <view class="clear_view">
+          <text style="text-align: center; flex-grow: 1; font-weight: 800;">旧薪资</text>
+          <image class="clear_img" src="{{clear_image_before}}" mode="widthFix" bind:tap="tapClearBefore" bind:touchstart="touchClearStartBefore" bind:touchend="touchClearEndBefore" />
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">月薪</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input3" type="digit" placeholder="金额/元" value="{{vBeforeSalary}}" bindinput="inputBeforeSalary" />
+          <text>x</text>
+          <text>12月</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">公积金</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input1" type="digit" placeholder="基数" value="{{vBeforeProvidentFund}}" bindinput="inputBeforeProvidentFund" />
+          <text>x</text>
+          <input class="input2" type="digit" placeholder="比例" value="{{vBeforeProvidentFundPer}}" bindinput="inputBeforeProvidentFundPer" />
+          <text>%</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">社保</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input3" type="digit" placeholder="基数" value="{{vBeforeSocial}}" bindinput="inputBeforeSocial" />
+          <text>x</text>
+          <text>10.5%</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">年终奖</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input1" type="digit" placeholder="金额/元" value="{{vBeforeBonus}}" bindinput="inputBeforeBonus" />
+          <text>x</text>
+          <input class="input2" type="digit" placeholder="月数" value="{{vBeforeBonusMonth}}" bindinput="inputBeforeBonusMonth" />
+          <text>月</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="together">
+      <view class="contain">
+        <view class="clear_view">
+          <text style="text-align: center; flex-grow: 1; font-weight: 800;">个税扣除选择</text>
+          <image class="clear_img" src="{{clear_image_together}}" mode="widthFix" bind:tap="tapClearTogether" bind:touchstart="touchClearStartTogether" bind:touchend="touchClearEndTogether" />
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">个税附加专项</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input4" type="digit" placeholder="金额/元/年" value="{{vTax}}" bindinput="inputTax" />
+          <text>元</text>
+        </view>
+      </view>
+
+      <view class="contain">
+        <view class="salary_text">
+          <text class="input_text">其他免税收入/扣除</text>
+        </view>
+
+        <view class="salary_input">
+          <input class="input4" type="digit" placeholder="金额/元/年" value="{{vOtherTax}}" bindinput="inputOtherTax" />
+          <text>元</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="rounded-button" bindtap="tapCalcx">计算详情</button>
+  </view>
+</scroll-view>
