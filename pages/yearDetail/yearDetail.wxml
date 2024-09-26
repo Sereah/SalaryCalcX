@@ -1,0 +1,5 @@
+<!-- pages/yearDetail/yearDetail.wxml -->
+<view class="custom-navbar">
+    <image class="calcx" src="/assert/index/房价计算器.png" mode="widthFix" />
+    <text class="navbar-title">SalaryCalcX</text>
+</view>

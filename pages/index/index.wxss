@@ -1,195 +1,147 @@
 /* page.wxss */
-.custom-navbar {
-  display: flex;
-  align-items: center;
-  height: 230rpx; 
-  background-color: #ffffff; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-}
-
-.calcx {
-  width: 60rpx;
-  height: 60rpx;
-  display: flex;
-  margin-top: 70rpx;
-  margin-left: 20rpx;
-}
-
-.navbar-title {
-  font-size: 48rpx;
-  display: flex;
-  font-weight: bolder;
-  margin-top: 65rpx;
-  margin-left: 20rpx;
-  color: #D11C14;
-}
-
 .contain {
-  flex-direction: column;
-  width: 100%;
-  display: flex;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .salary_input {
-  flex-direction: row;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .salary_text {
-  display: flex;
-  flex-direction: row;
-  margin: 10rpx;
-  margin-top: 5rpx;
-  font-size: 30rpx;
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+    margin-top: 5rpx;
+    font-size: 30rpx;
 }
 
 .input1 {
-  width: 60%;
-  height: 50rpx;
-  padding: 10rpx 20rpx;
-  border: 5rpx solid rgb(224, 224, 224);
-  border-top: 3rpx solid rgb(224, 224, 224);
-  border-radius: 50rpx;
-  font-size: 33rpx;
-  background-color: white;
+    width: 60%;
+    height: 50rpx;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid rgb(224, 224, 224);
+    border-top: 3rpx solid rgb(224, 224, 224);
+    border-radius: 50rpx;
+    font-size: 33rpx;
+    background-color: white;
 }
 
 .input2 {
-  text-align: center;
-  width: 10%;
-  padding: 10rpx 20rpx;
-  border: 5rpx solid rgb(224, 224, 224);
-  border-top: 3rpx solid rgb(224, 224, 224);
-  border-radius: 50rpx;
-  font-size: 33rpx;
-  background-color: white;
+    text-align: center;
+    width: 10%;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid rgb(224, 224, 224);
+    border-top: 3rpx solid rgb(224, 224, 224);
+    border-radius: 50rpx;
+    font-size: 33rpx;
+    background-color: white;
 }
 
 .input3 {
-  width: 70%;
-  padding: 10rpx 20rpx;
-  border: 5rpx solid rgb(224, 224, 224);
-  border-top: 3rpx solid rgb(224, 224, 224);
-  border-radius: 50rpx;
-  font-size: 33rpx;
-  background-color: white;
+    width: 70%;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid rgb(224, 224, 224);
+    border-top: 3rpx solid rgb(224, 224, 224);
+    border-radius: 50rpx;
+    font-size: 33rpx;
+    background-color: white;
 }
 
 .input4 {
-  width: 85%;
-  padding: 10rpx 20rpx;
-  border: 5rpx solid rgb(224, 224, 224);
-  border-top: 3rpx solid rgb(224, 224, 224);
-  border-radius: 50rpx;
-  font-size: 33rpx;
-  background-color: white;
+    width: 85%;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid rgb(224, 224, 224);
+    border-top: 3rpx solid rgb(224, 224, 224);
+    border-radius: 50rpx;
+    font-size: 33rpx;
+    background-color: white;
 }
 
 .after {
-  border-radius: 30rpx;
-  padding: 20rpx;
-  padding-top: 0rpx;
-  padding-bottom: 0rpx;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 30rpx;
+    padding: 20rpx;
+    padding-top: 0rpx;
+    padding-bottom: 0rpx;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .before {
-  margin-top: 30rpx;
-  border-radius: 30rpx;
-  padding: 20rpx;
-  padding-top: 0rpx;
-  padding-bottom: 0rpx;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 30rpx;
+    border-radius: 30rpx;
+    padding: 20rpx;
+    padding-top: 0rpx;
+    padding-bottom: 0rpx;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .together {
-  margin-top: 30rpx;
-  border-radius: 30rpx;
-  padding: 20rpx;
-  padding-top: 0rpx;
-  padding-bottom: 0rpx;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 30rpx;
+    border-radius: 30rpx;
+    padding: 20rpx;
+    padding-top: 0rpx;
+    padding-bottom: 0rpx;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .rounded-button {
-  margin-top: 20rpx;
-  padding: 10px;
-  background-color: #b85f5b;
-  color: #fff;
-  border: none;
-  border-radius: 25px; /* 设置弧角 */
-  text-align: center;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* 添加阴影效果 */
-  cursor: pointer;
+    margin-top: 20rpx;
+    padding: 10px;
+    background-color: #b85f5b;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    /* 设置弧角 */
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    /* 添加阴影效果 */
+    cursor: pointer;
 }
 
 .rounded-button:active {
-  background-color: #944d49; /* 按钮点击时的颜色 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+    background-color: #944d49;
+    /* 按钮点击时的颜色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
 }
 
 .clear_view {
-  flex-direction: row;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .clear_img {
-  width: 40rpx;
-  height: 40rpx;
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .hint {
-  display: flex;
-  flex-direction: row;
-  height: 40rpx;
-  margin-bottom: 30rpx;
-}
-
-.hintWindow {
-  position: fixed;  /* 固定位置，使其悬浮在页面内容之上 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);  /* 半透明黑色背景 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;  /* 确保弹窗处于最上层 */
-}
-
-.hintContent {
-  background-color: white;
-  width: 80%;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-  z-index: 1001;  /* 弹窗内容位于背景层之上 */
+    display: flex;
+    flex-direction: row;
+    height: 40rpx;
+    margin-bottom: 30rpx;
 }
 
 .hint_title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 40rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 40rpx;
 }
 
 .hint_content {
-  margin: 10rpx;
-  padding: 10rpx;
-  display: flex;
-  flex-direction: column;
+    margin: 10rpx;
+    padding: 10rpx;
+    display: flex;
+    flex-direction: column;
 }
-
