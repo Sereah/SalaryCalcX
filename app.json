@@ -1,8 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/book/book",
-    "pages/yearDetail/yearDetail"
+    "pages/book/book"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -28,5 +27,7 @@
   "renderer": "webview",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

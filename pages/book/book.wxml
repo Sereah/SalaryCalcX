@@ -1,162 +1,280 @@
 <!-- pages/boox/boox.wxml -->
 <view class="custom-navbar">
-    <image class="calcx" src="/assert/index/房价计算器.png" mode="widthFix" />
-    <text class="navbar-title">SalaryCalcX</text>
+	<image class="calcx" src="/assert/index/房价计算器.png" mode="widthFix" />
+	<text class="navbar-title">SalaryCalcX</text>
 </view>
 <scroll-view>
-    <view class="container">
-        <view class="detail">
-            <view class="detail_title">
-                <text>月薪对比</text>
-                <text style="font-size: 23rpx; color: #717171;">(税前)</text>
-            </view>
-            <view class="detail_new">
-                <text>新:</text>
-                <view style="color: #D11C14;">
-                    <text>￥</text>
-                    <text>{{salaryNew}}/月</text>
-                </view>
-            </view>
-            <view class="detail_old">
-                <text>旧:</text>
-                <view style="color: #717171;">
-                    <text>￥</text>
-                    <text>{{salaryOld}}/月</text>
-                </view>
-            </view>
-            <view class="detail_percent">
-                <text>涨幅:</text>
-                <view style="align-items: center; display: flex;">
-                    <image src="{{salaryImg}}" mode="widthFix" style="width: 40rpx;" />
-                    <view style="color: {{salaryColor}};">
-                        <text>{{salaryPer}}</text>
-                        <text>%</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="detail">
-            <view class="detail_title">
-                <text>公积金对比</text>
-                <text style="font-size: 23rpx; color: #717171;">(公司+个人年度总和)</text>
-            </view>
-            <view class="detail_new">
-                <text>新:</text>
-                <view style="color: #D11C14;">
-                    <text>￥</text>
-                    <text>{{providentFundNew}}/年</text>
-                </view>
-            </view>
-            <view class="detail_old">
-                <text>旧:</text>
-                <view style="color: #717171;">
-                    <text>￥</text>
-                    <text>{{providentFundOld}}/年</text>
-                </view>
-            </view>
-            <view class="detail_percent">
-                <text>涨幅:</text>
-                <view style="align-items: center; display: flex;">
-                    <image src="{{providentImg}}" mode="widthFix" style="width: 40rpx;" />
-                    <view style="color: {{providentColor}};">
-                        <text>{{providentFundPer}}</text>
-                        <text>%</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="detail">
-            <view class="detail_title">
-                <text>年终奖</text>
-                <text style="font-size: 23rpx; color: #717171;" />
-            </view>
-            <view class="detail_new">
-                <text>新:</text>
-                <view style="color: #D11C14;">
-                    <text>￥</text>
-                    <text>{{bonusNew}}/年</text>
-                </view>
-            </view>
-            <view class="detail_old">
-                <text>旧:</text>
-                <view style="color: #717171;">
-                    <text>￥</text>
-                    <text>{{bonusOld}}/年</text>
-                </view>
-            </view>
-            <view class="detail_percent">
-                <text>涨幅:</text>
-                <view style="align-items: center; display: flex;">
-                    <image src="{{bonusImg}}" mode="widthFix" style="width: 40rpx;" />
-                    <view style="color: {{bonusColor}};">
-                        <text>{{bonusPer}}</text>
-                        <text>%</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="detail">
-            <view class="detail_title">
-                <text>税前年薪</text>
-                <text style="font-size: 23rpx; color: #717171;">(包含年度公积金+年终奖)</text>
-            </view>
-            <view class="detail_new">
-                <text>新:</text>
-                <view style="color: #D11C14;">
-                    <text>￥</text>
-                    <text>{{yearTaxNew}}/年</text>
-                </view>
-            </view>
-            <view class="detail_old">
-                <text>旧:</text>
-                <view style="color: #717171;">
-                    <text>￥</text>
-                    <text>{{yearTaxOld}}/年</text>
-                </view>
-            </view>
-            <view class="detail_percent">
-                <text>涨幅:</text>
-                <view style="align-items: center; display: flex;">
-                    <image src="{{yearTaxImg}}" mode="widthFix" style="width: 40rpx;" />
-                    <view style="color: {{yearTaxColor}};">
-                        <text>{{yearTaxPer}}</text>
-                        <text>%</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="detail" bind:tap="tapShowYearDetail">
-            <view class="detail_title">
-                <text>税后年薪</text>
-                <text style="font-size: 23rpx; color: #717171;">(扣除五险一金+税后年终奖)</text>
-            </view>
-            <view class="detail_new">
-                <text>新:</text>
-                <view style="color: #D11C14;">
-                    <text>￥</text>
-                    <text>{{yearNew}}/年</text>
-                </view>
-            </view>
-            <view class="detail_old">
-                <text>旧:</text>
-                <view style="color: #717171;">
-                    <text>￥</text>
-                    <text>{{yearOld}}/年</text>
-                </view>
-            </view>
-            <view class="detail_percent">
-                <text>涨幅:</text>
-                <view style="align-items: center; display: flex;">
-                    <image src="{{yearImg}}" mode="widthFix" style="width: 40rpx;" />
-                    <view style="color: {{yearColor}};">
-                        <text>{{yearPer}}</text>
-                        <text>%</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="chart">
-            <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" />
-        </view>
-    </view>
+	<view class="container">
+		<view class="detail">
+			<view class="detail_title">
+				<text>月薪对比</text>
+				<text style="font-size: 23rpx; color: #717171;">(税前)</text>
+			</view>
+			<view class="detail_new">
+				<text>新:</text>
+				<view style="color: #D11C14;">
+					<text>￥</text>
+					<text>{{salaryNew}}/月</text>
+				</view>
+			</view>
+			<view class="detail_old">
+				<text>旧:</text>
+				<view style="color: #717171;">
+					<text>￥</text>
+					<text>{{salaryOld}}/月</text>
+				</view>
+			</view>
+			<view class="detail_percent">
+				<text>涨幅:</text>
+				<view style="align-items: center; display: flex;">
+					<image src="{{salaryImg}}" mode="widthFix" style="width: 40rpx;" />
+					<view style="color: {{salaryColor}};">
+						<text>{{salaryPer}}</text>
+						<text>%</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="detail">
+			<view class="detail_title">
+				<text>公积金对比</text>
+				<text style="font-size: 23rpx; color: #717171;">(公司+个人年度总和)</text>
+			</view>
+			<view class="detail_new">
+				<text>新:</text>
+				<view style="color: #D11C14;">
+					<text>￥</text>
+					<text>{{providentFundNew}}/年</text>
+				</view>
+			</view>
+			<view class="detail_old">
+				<text>旧:</text>
+				<view style="color: #717171;">
+					<text>￥</text>
+					<text>{{providentFundOld}}/年</text>
+				</view>
+			</view>
+			<view class="detail_percent">
+				<text>涨幅:</text>
+				<view style="align-items: center; display: flex;">
+					<image src="{{providentImg}}" mode="widthFix" style="width: 40rpx;" />
+					<view style="color: {{providentColor}};">
+						<text>{{providentFundPer}}</text>
+						<text>%</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="detail">
+			<view class="detail_title">
+				<text>年终奖</text>
+				<text style="font-size: 23rpx; color: #717171;" />
+			</view>
+			<view class="detail_new">
+				<text>新:</text>
+				<view style="color: #D11C14;">
+					<text>￥</text>
+					<text>{{bonusNew}}/年</text>
+				</view>
+			</view>
+			<view class="detail_old">
+				<text>旧:</text>
+				<view style="color: #717171;">
+					<text>￥</text>
+					<text>{{bonusOld}}/年</text>
+				</view>
+			</view>
+			<view class="detail_percent">
+				<text>涨幅:</text>
+				<view style="align-items: center; display: flex;">
+					<image src="{{bonusImg}}" mode="widthFix" style="width: 40rpx;" />
+					<view style="color: {{bonusColor}};">
+						<text>{{bonusPer}}</text>
+						<text>%</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="detail">
+			<view class="detail_title">
+				<text>税前年薪</text>
+				<text style="font-size: 23rpx; color: #717171;">(包含年度公积金+年终奖)</text>
+			</view>
+			<view class="detail_new">
+				<text>新:</text>
+				<view style="color: #D11C14;">
+					<text>￥</text>
+					<text>{{yearTaxNew}}/年</text>
+				</view>
+			</view>
+			<view class="detail_old">
+				<text>旧:</text>
+				<view style="color: #717171;">
+					<text>￥</text>
+					<text>{{yearTaxOld}}/年</text>
+				</view>
+			</view>
+			<view class="detail_percent">
+				<text>涨幅:</text>
+				<view style="align-items: center; display: flex;">
+					<image src="{{yearTaxImg}}" mode="widthFix" style="width: 40rpx;" />
+					<view style="color: {{yearTaxColor}};">
+						<text>{{yearTaxPer}}</text>
+						<text>%</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="detail" bind:tap="tapShowYearWindow" bind:touchstart="touchYearDetailStart" bind:touchend="touchYearDetailEnd" style="box-shadow: {{yearDetalBoxShadow}};">
+			<view class="detail_title">
+				<text>税后年薪</text>
+				<text style="font-size: 23rpx; color: #717171;">(扣除五险一金+税后年终奖)</text>
+			</view>
+			<view class="detail_new">
+				<text>新:</text>
+				<view style="color: #D11C14;">
+					<text>￥</text>
+					<text>{{yearNew}}/年</text>
+				</view>
+			</view>
+			<view class="detail_old">
+				<text>旧:</text>
+				<view style="color: #717171;">
+					<text>￥</text>
+					<text>{{yearOld}}/年</text>
+				</view>
+			</view>
+			<view class="detail_percent">
+				<text>涨幅:</text>
+				<view style="align-items: center; display: flex;">
+					<image src="{{yearImg}}" mode="widthFix" style="width: 40rpx;" />
+					<view style="color: {{yearColor}};">
+						<text>{{yearPer}}</text>
+						<text>%</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="chart">
+			<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" />
+		</view>
+	</view>
 </scroll-view>
+
+<view class="window" wx:if="{{showYearWindow}}" catch:touchmove="true" bind:tap="tapHideYearWindow">
+	<view class="windowContent" style="width: 70%; height: 700rpx;" catch:tap="tapCatch">
+		<view class="windoTitle">
+			<text>{{isYearNew ? '税后年薪(新)' : '税后年薪(旧)'}}</text>
+			<image src="{{reImage}}" mode="widthFix" style="width: 40rpx;" catch:tap="tapYearWindowRe" bind:touchstart="touchReStart" bind:touchend="touchReEnd" />
+		</view>
+		<scroll-view class="scrollView" scroll-y="true" scroll-with-animation style="color: {{isYearNew ? '#d77b77' : '#717171'}};">
+			<view class="content">
+				<text>1月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? janNew : janOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>2月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? febNew : febOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>3月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? marNew : marOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>4月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? aprNew : aprOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>5月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? mayNew : mayOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>6月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? junNew : junOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>7月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? julNew : julOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>8月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? augNew : augOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>9月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? sepNew : sepOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>10月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? octNew : octOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>11月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? novNew : novOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+
+			<view class="content">
+				<text>12月</text>
+				<view>
+					<text>￥</text>
+					<text>{{isYearNew ? decNew : decOld}}</text>
+				</view>
+			</view>
+			<view class="border"></view>
+		</scroll-view>
+	</view>
+</view>

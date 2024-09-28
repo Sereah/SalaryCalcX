@@ -25,7 +25,21 @@ Page({
         clear_image_together: "/assert/index/删除.png",
         tap_clear_image: "/assert/index/删除_aactive.png",
         default_clear_image: "/assert/index/删除.png",
-    },
+	},
+	
+	onShareAppMessage() {
+		return {
+			title: '税前税后工资计算',
+			path: '/pages/index/index',
+		  };
+	},
+
+	onShareTimeline() {
+		return {
+			title: '税前税后工资计算',
+			path: '/pages/index/index',
+		  };
+	},
 
     /* *********************************** 计算须知弹窗 *********************************** */
 

@@ -86,8 +86,27 @@ Page({
         novOld: 0,
         novNew: 0,
         decOld: 0,
-        decNew: 0,
-    },
+		decNew: 0,
+		
+		showYearWindow: false,
+		yearDetalBoxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
+		reImage: "/assert/index/翻转.png",
+		isYearNew: false,
+	},
+	
+	onShareAppMessage() {
+		return {
+			title: '税前税后工资计算',
+			path: '/pages/book/book',
+		  };
+	},
+
+	onShareTimeline() {
+		return {
+			title: '税前税后工资计算',
+			path: '/pages/book/book',
+		  };
+	},
 
     onShow: function () {
 
@@ -612,10 +631,63 @@ Page({
     },
 
     /* *********************************** 详情点击 *********************************** */
-    tapShowYearDetail: function () {
-        wx.navigateTo({
-          url: '/pages/yearDetail/yearDetail',
-        })
-    },
+    tapHideYearWindow: function() {
+		this.setData({
+			showYearWindow: false
+		})
+	},
 
+	tapShowYearWindow : function() {
+		console.log("old: ", this.data.yearOld);
+		console.log("new: ", this.data.yearNew);
+		if(this.data.yearNew == 0 && this.data.yearOld == 0) {
+			wx.showToast({
+                title: '税后年薪为空, 无法查看详情。',
+                icon: "none",
+                duration: 2000
+			});
+			return;
+		}
+		this.setData({
+			showYearWindow: true
+		})
+	},
+
+	touchYearDetailStart: function() {
+		this.setData({
+			yearDetalBoxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+		})
+	},
+
+	touchYearDetailEnd: function() {
+		this.setData({
+			yearDetalBoxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
+		})
+	},
+
+	tapYearWindowRe: function() {
+		if(this.data.isYearNew) {
+			this.setData({
+				isYearNew: false
+			})
+		} else {
+			this.setData({
+				isYearNew: true
+			})
+		}
+	},
+
+	touchReStart: function() {
+		this.setData({
+			reImage: "/assert/index/翻转_active.png"
+		})
+	},
+
+	touchReEnd: function() {
+		this.setData({
+			reImage: "/assert/index/翻转.png"
+		})
+	},
+
+	tapCatch: function(){}
 });
