@@ -98,7 +98,6 @@
 						<checkbox value="extraPayTax" bindchange="extraCheckBox"></checkbox>
 						<text>参与纳税</text>
 					</view>
-
 				</view>
 			</view>
 		</view>
