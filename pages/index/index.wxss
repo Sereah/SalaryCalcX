@@ -65,6 +65,17 @@
     background-color: white;
 }
 
+.input5 {
+    width: 40%;
+    height: 50rpx;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid rgb(224, 224, 224);
+    border-top: 3rpx solid rgb(224, 224, 224);
+    border-radius: 50rpx;
+    font-size: 33rpx;
+    background-color: white;
+}
+
 .after {
     border-radius: 30rpx;
     padding: 20rpx;
